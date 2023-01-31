@@ -7,7 +7,8 @@ export const api = createApi({
     "User",
     "Products",
     "Customers",
-    "Transactions"
+    "Transactions",
+    "Geography",
   ],
   endpoints: (build) => ({
     getUser: build.query({
@@ -30,6 +31,11 @@ export const api = createApi({
       }),
       providesTags: ["Transactions"],
     }),
+    getGeography: build.query({
+      query: () => "client/geography",
+      providesTags: ["Geography"],
+    }),
+
   })
 });
 
@@ -38,4 +44,5 @@ export const {
   useGetProductsQuery,
   useGetCustomersQuery,
   useGetTransactionsQuery,
+  useGetGeographyQuery,
 } = api;
